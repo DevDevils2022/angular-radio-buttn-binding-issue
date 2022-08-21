@@ -1,0 +1,58 @@
+<div class="jumbotron text-center">
+<h1 class="display-5">Radio Buttons in Angular</h1>
+</div>
+
+<div class="container">
+<div class="row custom-wrapper">
+  <div class="col-md-12">
+    <!-- Form starts -->
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <!-- Gender -->
+      <div class="group-gap">
+        <h5 class="mb-3">Gender</h5>
+        <div class="d-block my-3">
+          <div
+            class="custom-control custom-radio"
+            *ngFor="let rd of genders"
+          >
+            <!-- <input
+              type="radio"
+              class="custom-control-input"
+              [formControlName]="'gender'"
+              [checked]="rd.labelQuestionId == selectedRd.labelQuestionId"
+            /> --> {{selectedRd['labelQuestionId'] ==
+                rd.labelQuestionId}}
+
+              <!-- [formControl]="registrationForm.controls[rd.name]" -->
+            a    {{rd.name}}b
+            <input
+              type="radio"  class="custom-control-input"
+              [formControlName]="rd.name"
+              [name]="rd.name"
+              [value]="rd"
+              [checked]="
+              selectedRd['labelQuestionId'] ==
+                rd.labelQuestionId
+              "
+              
+            />
+            <label class="custom-control-label">{{ rd.questions }}</label>
+          </div>
+
+          <!-- <div class="custom-control custom-radio">
+            <input id="female" type="radio" class="custom-control-input" value="female" name="gender" formControlName="gender">
+            <label class="custom-control-label" for="female">Female</label>
+          </div> -->
+
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-danger btn-lg btn-block">
+        Submit
+      </button>
+    </form>
+    <!-- Form ends -->
+  </div>
+</div>
+</div>
